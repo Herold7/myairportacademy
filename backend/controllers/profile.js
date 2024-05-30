@@ -80,7 +80,6 @@ exports.getAllProfiles = (req, res, next) => {
     if (!req.auth || !req.auth.userId) {
         return res.status(401).json({ message: 'Non autorisé' });
     }
-
     Client.find()
         .then(clients => {
             res.status(200).json(clients);

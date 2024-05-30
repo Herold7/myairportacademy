@@ -5,9 +5,9 @@ const fs = require('fs');//Import du package d'intéraction avec le système de 
 //Accessible uniquement aux users authentifiés
 exports.createPost = (req, res, next) => {
     // Vérifie que l'utilisateur est authentifié
-    if (post.userId != req.auth.userId) {
-        res.status(401).json({ message: 'Non autorisé' });
-    } else {
+    if (!req.auth || !req.auth.userId) {
+        return res.status(401).json({ message: 'Non autorisé' });
+    }
     const postObject = JSON.parse(req.body.post);
     delete postObject._id;
     delete postObject._userId;
@@ -16,7 +16,6 @@ exports.createPost = (req, res, next) => {
         userId: req.auth.userId, // Utilise l'ID de l'utilisateur authentifié
         image: `${req.protocol}://${req.get('host')}/images/${req.file.filename}` // Génération d'une URL complète lors du téléversement d'une image
     });
-    }
     post.save()
         .then(() => { res.status(201).json({ message: 'Objet enregistré !' }) })
         .catch(error => { res.status(400).json({ error }) });
@@ -70,7 +69,7 @@ exports.deletePost = (req, res, next) => {
                 res.status(401).json({ message: 'Non autorisé' });
             } else {
                 const filename = post.image.split('/images/')[1];
-                fs.unlink(`images/${filename}`, () => {
+                fs.unlink(`images/${filename}`, () => {//Suppression de l'image associée à l'article
                     Post.deleteOne({ _id: req.params.id })
                         .then(() => { res.status(200).json({ message: 'Article supprimé !' }) })
                         .catch(error => res.status(401).json({ error }));
@@ -87,7 +86,6 @@ exports.getAllBlogs = (req, res, next) => {
     if (!req.auth || !req.auth.userId) {
         return res.status(401).json({ message: 'Non autorisé' });
     }
-
     Post.find()
         .then(posts => {
             res.status(200).json(posts);
