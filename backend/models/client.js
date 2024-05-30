@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose');//Import de mongoose
 
-const clientSchema = mongoose.Schema({
-    gender: { type: String, required: false },
+const clientSchema = mongoose.Schema({//Schéma de données pour les clients, avec les champs définis avec leur type et leur caractère obligatoire
+    gender: { type: String, required: false },//Genre du client, non obligatoire
     firstname: { type: String, required: true },
     lastname: { type: String, required: true },
     mail: { type: String, required: true },
@@ -11,8 +11,8 @@ const clientSchema = mongoose.Schema({
     consent: { type: Boolean, required: true },
     cv: { type: String, required: true },
     paymentStatus: { type: String, required: true },
-    created_at: { type: Date, default: Date.now, required: true },
+    created_at: { type: Date, default: Date.now, required: true },//Date de création du client, corresppond à la date actuelle
 })
 
 
-module.exports = mongoose.model('Client', clientSchema);
+module.exports = mongoose.model('Client', clientSchema);//Export du modèle Client vers app.js

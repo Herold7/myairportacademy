@@ -23,8 +23,10 @@ const app = express();//Création de l'application
 
 //Middleware de gestion du CORS
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Origin', '*');//Accès à l'API depuis n'importe quelle origine
+    //Ajout des headers mentionnés aux requêtes envoyées vers l'API
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+    //Ajout des méthodes mentionnées aux requêtes envoyées vers l'API
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
