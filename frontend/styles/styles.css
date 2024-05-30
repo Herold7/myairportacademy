@@ -1,0 +1,106 @@
+:root {
+    --header-height: 3.5rem;
+    /*56px*/
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+
+    --first-color:rgba(47, 172, 226,1);
+    --first-color-alt: rgba(166, 220, 242, 1);
+    --title-color: rgba(229, 142, 79, 1);
+    --title-color-alt: rgb(230, 167, 121);
+
+    --text-color: rgba(43, 43, 43, 1);
+    --text-color-light: rgba(227, 227, 228, 1);
+    --body-color: rgb(255, 255, 255);
+    --container-color: rgb(248, 249, 250);
+
+
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --title-font: "Lato", sans-serif;
+    --text-font: "Open Sans", sans-serif;
+    --big-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /*========== Margenes Bottom ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 2rem;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+body,
+button,
+input,
+textarea,
+p {
+    font-family: var(--text-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    height: 1000px;
+    overflow-x: hidden;
+    margin: var(--header-height) 0 0 0;
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: .4s;
+
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--title-font);
+}
+
+
+p {
+    font-family: var(--text-color);
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
