@@ -91,7 +91,7 @@ exports.signup = (req, res, next) => {//Inscription d'un utilisateur
 exports.login = (req, res, next) => {//Connexion d'un utilisateur
     User.findOne({ email: req.body.email })
         .then(user => {
-            if (!user) {
+            if (!user) {//Vérification de l'existence de l'utilisateur
                 return res.status(401).json({ error: 'Utilisateur non trouvé !' });
             }
             bcrypt.compare(req.body.password, user.password)//Comparaison du mot de passe
@@ -103,7 +103,7 @@ exports.login = (req, res, next) => {//Connexion d'un utilisateur
                         userId: user._id,
                         token: jwt.sign(
                             { userId: user._id },
-                            'RANDOM_TOKEN_SECRET',
+                            'RANDOM_TOKEN_SECRET',//Clé secrète pour l'encodage du token
                             { expiresIn: '24h' }
                         )
                     });
