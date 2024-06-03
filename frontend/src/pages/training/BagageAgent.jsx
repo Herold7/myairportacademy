@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css'; // Assurez-vous d'importer le fichier CSS correspondant
 
-const App = () => {
+const BagageAgent = () => {
     return (
         <div className="full-width-section" style={{ marginTop: 0, marginBottom: 0, paddingTop: 'var(--wp--preset--spacing--70)', paddingBottom: 'var(--wp--preset--spacing--70)' }}>
             <div className="columns-section" style={{ backgroundColor: '#141414', paddingRight: 'var(--wp--preset--spacing--70)', paddingLeft: 'var(--wp--preset--spacing--70)' }}>
@@ -99,4 +99,4 @@ const App = () => {
     );
 };
 
-export default App;
+export default BagageAgent;
