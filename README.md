@@ -2,7 +2,8 @@
 
 ## Description
 
-Myairportacademy est une application web qui propose les service de l'organisme de formation : Airport Training Academy. Le site permet de se renseigner, de prendre rendez-vous, de s'inscrire et de suivre une formation dans le secteur de l'aéroportuaire.
+Myairportacademy est une application web qui présente les services de l'organisme de formation "Airport Training Academy". 
+Le site permet de se renseigner, de prendre rendez-vous, de s'inscrire et de suivre une formation dans le secteur de l'aéroportuaire.
 
 ### Les étapes de réalisation
 
@@ -19,18 +20,7 @@ Myairportacademy est une application web qui propose les service de l'organisme 
    ```
 
 2. Création des composants
-   1. Nav
-   2. Footer
-   3. FormContact
-   4. FormRegistration
 3. Création des pages
-   1. Home (Accueil)
-   2. Testimonials (Témoignages)
-   3. Training (formations)
-   4. Funding (financement)
-   5. Registration (Inscription)
-   6. Blog
-   7. Contact
 4. Mise en place d'un router
 5. Installation d'ExpressJS
    ```bash
@@ -49,23 +39,8 @@ Myairportacademy est une application web qui propose les service de l'organisme 
    1. Mise en place des Middlewares
    2. Mise en place de CORS
 7. Création des models
-   1. Client
-   2. Interview
-   3. User
-   4. Post
 8. Création des controllers
-   1. Registration
-   2. Profile
-   3. User
-   4. Blog
 9.  Création des routes
-   1.  Registration
-   2.  Profile
-   3.  User
-   4.  Blog
-10. Mise en place de la persistance avec JSON
-11. Intégration d'un formulaire pour Save()
-12. Mise en place de l'affichage des favoris
 
 ---
 
@@ -76,10 +51,10 @@ Pour les composants, dans ce projet nous avons l'architecture suivante :
 ```
 backend
     ├── controllers
-            ├── blog.js
-            ├── profile.js
-            ├── registration.js
-            ├── user.js 
+        ├── blog.js
+        ├── profile.js
+        ├── registration.js
+        ├── user.js 
     ├── files
     ├── images
     ├── middleware
@@ -102,7 +77,8 @@ backend
     ├──package-lock.json
     ├──package.json
     ├──server.js
-backend
+frontend
+    ├── node_modules
     ├──public
         ├── vite.svg
     ├──src
