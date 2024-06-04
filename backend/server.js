@@ -14,7 +14,7 @@ const normalizePort = val => {
     }
     return false;
 };
-const port = normalizePort(process.env.PORT || '3000');//Configure la l'application pour l'écoute du port
+const port = normalizePort(process.env.PORT || '3000');//Configure l'application pour l'écoute du port
 app.set('port', port);
 
 //Gestion des erreurs lors de l'écoute du port
