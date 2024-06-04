@@ -3,12 +3,13 @@ const express = require('express');//Import du framework Express
 const bodyParser = require('body-parser'); //Import du package d'accès aux contenus des données transmises par le front
 const mongoose = require('mongoose'); //Import du package mongoose
 const dotenv = require('dotenv').config(); //Import du package dotenv pour la gestion des variables d'environnement
+const cors = require('cors');
 
 
 
 //Import des routes 
 const blogRoutes = require('./routes/blog');
-const dashboardRoutes = require('./routes/user');
+const profileRoutes = require('./routes/profile');
 const registrationRoutes = require('./routes/registration');
 const userRoutes = require('./routes/user');
 
@@ -17,26 +18,19 @@ const path = require('path');//Module de gestion du système de fichiers
 //Connexion au cluster "myairportacademy" de la base de données MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Connexion à MongoDB réussie !'))
-    .catch(() => console.log('Connexion à MongoDB échouée !'));
+    .catch(error => console.error('Connexion à MongoDB échouée !', error));
 
 const app = express();//Création de l'application
 
 //Middleware de gestion du CORS
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');//Accès à l'API depuis n'importe quelle origine
-    //Ajout des headers mentionnés aux requêtes envoyées vers l'API
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
-    //Ajout des méthodes mentionnées aux requêtes envoyées vers l'API
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    next();
-});
+app.use(cors());
 
-app.use(bodyParser.json()); //Transformation du contenu en fichiers JSON
+app.use(express.json());
 
 //Routes d'accès aux données
 app.use('/api/blog', blogRoutes);
 app.use('/api/registration', registrationRoutes);
-app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/profile', profileRoutes);
 app.use('/api/auth', userRoutes);
 
 //Route d'accès aux médias téléversés
