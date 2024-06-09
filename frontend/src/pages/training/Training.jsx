@@ -1,14 +1,21 @@
 import React from 'react';
 import { DataProvider, useData } from './DataContext';
-import ReusableComponent from './ReusableComponent';
+import TrainingStructure from './TrainingStructure';
 
 const Training = () => {
     const data = useData();
 
     return (
         <div>
-            <ReusableComponent data={data.baggageAgent} />
-            <ReusableComponent data={data.cleaningAgent} />
+            <TrainingStructure data={data.groundHandlingAgent} />
+            <TrainingStructure data={data.AirportPMRAgent} />
+            <TrainingStructure data={data.welcomeAgent} />
+            <TrainingStructure data={data.rampAgent} />
+            <TrainingStructure data={data.baggageAgent} />
+            <TrainingStructure data={data.cleaningAgent} />
+            <TrainingStructure data={data.securityAgent} />
+            <TrainingStructure data={data.MealTrayPreparer} />
+            <TrainingStructure data={data.ImportExportAgent} />
         </div>
     );
 };
