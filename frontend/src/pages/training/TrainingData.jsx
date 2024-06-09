@@ -1,23 +1,22 @@
 // src/DataContext.js
 import React, { createContext, useContext } from 'react';
-import AirportPMRAgent from './Agent_pmr';
 
-const DataContext = createContext();
+const DataContext = createContext();// DataProvider component
 
 export const DataProvider = ({ children }) => {
-    const data = {
-        baggageAgent: {
+    const data = {// Data object
+        baggageAgent: {// Baggage Agent data
             img: "https://myairportacademy.com/wp-content/uploads/2024/04/baggage-1697327_1280.jpg",
-            imgAlt:"Agent de piste bagagiste",
+            imgAlt: "Agent de piste bagagiste",
             title: "Agent Bagagiste (uniquement pour les candidats sans permis)",
-            description: "L'Agent Bagagiste, souvent appelé aussi agent de piste...",
+            description: "L'Agent Bagagiste, souvent appelé aussi agent de piste en raison de ses fonctions qui se déroulent majoritairement sur la piste des aéroports, joue un rôle essentiel dans le fonctionnement et la logistique aéroportuaire. Ce professionnel est chargé de la manipulation des bagages dans les aéroports, assurant leur transfert entre les avions, les tapis de réception, et les zones de tri. En Île-de-France, où se trouvent certains des aéroports les plus importants et les plus fréquentés de France, tels que Charles de Gaulle (CDG), le Bourget (LBG) et Orly (ORY), le rôle de l'agent bagagiste est particulièrement important.",
             section: [
                 {
                     bgColor: '#2face2',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Métier',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-Depart.gif",
-                    iconAlt:"GIF inline d'un avion",
+                    iconAlt: "GIF inline d'un avion noir sur fond orange et cartouche noir et écriture grise noir sur fond orange et cartouche noir et écriture grise",
                     description: "Les missions spécifiques de l'Agent Bagagiste :",
                     items: [
                         "Engins et servitude avions / Connaissance du Loader et convoyeur à bande",
@@ -28,10 +27,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#141414',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Générale',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     description: "Compétences générales de l'Agent Bagagiste :",
                     items: [
                         "Plateforme aéroportuaire, Règles de sécurité en piste",
@@ -42,21 +41,21 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#e58e4f',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation réglementaire',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-1714049788560.gif",
-                    iconAlt:"GIF inline d'un contrôle de passeport aéroportuaire",
+                    iconAlt: "GIF inline d'un contrôle de passeport aéroportuaire sur fond bleu et cartouche noir et écriture grise",
                     description: "Connaissances sécuritaires et réglementaires :",
                     items: [
-                        "Module sûreté Contributeur",
-                        "Module sûreté Contributeur",
+                        "Module sûreté Contributeur 11.2.3.8 - Traitement des bagages",
+                        "Module sûreté Contributeur 11.2.3.9 - Traitement du fret, des biens et produits",
                         "Marchandises Dangereuses Catégorie 8c (Piste+RRW)",
                     ]
                 },
                 {
                     heading: 'Outils Pédagogiques',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                    iconAlt:"GIF inline d'une tasse de café",
+                    iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
                     description: "Les dispositifs mis en place pour une formation de qualité :",
                     items: [
                         "Présentiel",
@@ -69,34 +68,34 @@ export const DataProvider = ({ children }) => {
                 {
                     moreInfoLink: "https://candidat.francetravail.fr/marche-du-travail/fichemetierrome?codeRome=N2203",
                     signupLink: "https://myairportacademy.com/inscription/",
-                    },
+                },
             ]
         },
-        cleaningAgent: {
+        cleaningAgent: {// Cleaning Agent data
             img: "https://myairportacademy.com/wp-content/uploads/2024/04/agent-de-nettoyage-2.webp",
-            imgAlt:"Agent de nettoyage avion/aéroport",
-            title: "Agent de nettoyage avion/aéroport",
-            description: "L'Agent de Nettoyage avion/aéroport en France...",
+            imgAlt: "Agent de nettoyage, vu de face, dans un avion. Exécute une tache de nettoyage avec un chiffon vert et un spray, à genoux sur un siège. Il porte un uniforme gris foncé, sous un chasuble rouge, gris et jaune fluo. Il a un masque et porte des lunettes noires. Au fond il a deux collègues, l'une réalisant la même tache que lui et le second est en discussion avec une personne habillé d'un bleue jean et d'une veste rose.",
+            title: "Agent de Nettoyage Avion/Aéroport",
+            description: "L'Agent de Nettoyage avion/aéroport en France, particulièrement en Île-de-France, occupe un poste polyvalent et essentiel au bon fonctionnement des services aéroportuaires et à bord des avions. Cette profession englobe la responsabilité de maintenir la propreté non seulement dans les avions et les zones aéroportuaires. La demande pour ces professionnels est particulièrement élevée dans des zones à trafic intense comme celles de Charles de Gaulle (CDG), le Bourget (LBG) et Orly (ORY), qui sont parmi les aéroports les plus fréquentés d'Europe.",
             section: [
                 {
                     bgColor: '#2face2',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Métier',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-Depart.gif",
-                    iconAlt:"GIF inline d'un avion",
+                    iconAlt: "GIF inline d'un avion noir sur fond orange et cartouche noir et écriture grise",
                     items: [
-                        "Connaitre l’environnement et les acteurs aéroportuaire...",
+                        "Connaitre l’environnement et les acteurs aéroportuaire (co-activité / alphabet aéroportuaire / SGS / environnement de la piste)",
                         "Code IATA + typologie des passagers + passager à particularité",
                         "Le catering aéroportuaire / sensibilisation aux normes HACCP",
                         "Nettoyage avion (clean & search) / types avion / méthode de nettoyage cabine / techniques de base de nettoyage / temps d’intervention"
                     ]
                 },
                 {
-                    bgColor:'#141414',
-                    color:'#fefefe',
+                    bgColor: '#141414',
+                    color: '#fefefe',
                     heading: 'Formation Générale',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     description: "Compétences générales de l'Agent de Nettoyage avion/aéroport :",
                     items: [
                         "Facteurs humains",
@@ -105,16 +104,16 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#e58e4f',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation réglementaire',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-1714049788560.gif",
-                    iconAlt:"GIF inline d'un contrôle de passeport aéroportuaire",   
+                    iconAlt: "GIF inline d'un contrôle de passeport aéroportuaire sur fond bleu et cartouche noir et écriture grise",
                     description: "Connaissances sécuritaires et réglementaires :",
                     items: [
-                        "Sensibilisation législation aéroportuaire...",
-                        "Sécurité aéroportuaire...",
-                        "Connaître les exigences réglementaires concernant EWIS...",
-                        "Connaître les exigences réglementaires concernant EWIS...",
+                        "Sensibilisation législation aéroportuaire (être en mesure de connaitre et comprendre l’application des différents règlements à l’échelle internationale et européenne) / instances internationales / code OACI",
+                        "Sécurité aéroportuaire (Les FOD / règles de prévention / la touchée / type d’embarquement) / Acquérir l’accès piéton aux secteurs TRA et MAN des plateformes du groupe ADP",
+                        "Connaître les exigences réglementaires concernant EWIS et leur impact sur la préservation du câblage tout au long de la vie d’un aéronef / Acquérir une connaissance technique en matière de sécurité EWIS du groupe 6 en rapport avec son activité sur un aéronef",
+                        "Connaître les exigences réglementaires concernant EWIS et leur impact sur la préservation du câblage tout au long de la vie d’un aéronef / Connaître le système d’interconnexion de câblage électrique pour les groupes 4 et 5",
                         "Module sûreté Contributeur 11.2.3.6 - Connaissance de la Fouille de sûreté",
                         "Module sûreté Contributeur 11.2.3.10 - Connaissance des variantes d’approvisionnement de bord",
                     ]
@@ -122,7 +121,7 @@ export const DataProvider = ({ children }) => {
                 {
                     heading: 'Outils Pédagogiques',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                    iconAlt:"GIF inline d'une tasse de café",
+                    iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
                     description: "Les dispositifs mis en place pour une formation de qualité :",
                     items: [
                         "Présentiel",
@@ -135,21 +134,21 @@ export const DataProvider = ({ children }) => {
                 {
                     moreInfoLink: "https://candidat.francetravail.fr/marche-du-travail/fichemetierrome?codeRome=K2204",
                     signupLink: "https://myairportacademy.com/inscription/",
-                    },
+                },
             ]
         },
-        rampAgent: {
+        rampAgent: {// Ramp Agent data
             img: "https://myairportacademy.com/wp-content/uploads/2024/04/rampe-1.jpg",
-            imgAlt:"Agent de piste",
-            title: "Agent de piste",
-            description: "L'Agent de Piste en France est un professionnel...",
+            imgAlt: "Agent de piste aéroportuaire, vu de dos en plein jour, en uniforme bleu et jaune fluorescent donnant des indications à avion lui faisant face. Les deux sont alignés sur une ligne jaune",
+            title: "Agent de Piste",
+            description: "Le métier d'Agent de Piste aéroportuaire, également connu sous les appellations <i>d'opérateur de piste</i>, joue un rôle essentiel dans les opérations au sol des aéroports. Cela est particulièrement vrai en Île-de-France, région qui abrite certains des aéroports les plus fréquentés de France, comme Charles de Gaulle (CDG), le Bourget (LBG) et Orly (ORY), où la demande pour ces professionnels est constante.",
             section: [
                 {
                     bgColor: '#2face2',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Métier',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-Depart.gif",
-                    iconAlt:"GIF inline d'un avion",
+                    iconAlt: "GIF inline d'un avion noir sur fond orange et cartouche noir et écriture grise",
                     description: "Les missions spécifiques de l'Agent de Piste :",
                     items: [
                         "Engins et servitude avions / Connaissance du Loader et convoyeur à bande",
@@ -160,10 +159,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#141414',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Générale',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     description: "Compétences générales de l'Agent de Piste :",
                     items: [
                         "Plateforme aéroportuaire, Règles de sécurité en piste",
@@ -174,10 +173,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#e58e4f',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation réglementaire',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-1714049788560.gif",
-                    iconAlt:"GIF inline d'un contrôle de passeport aéroportuaire",
+                    iconAlt: "GIF inline d'un contrôle de passeport aéroportuaire sur fond bleu et cartouche noir et écriture grise",
                     description: "Connaissances sécuritaires et réglementaires :",
                     items: [
                         "Module sûreté Contributeur Contributeur 11.2.3.8 - Traitement des bagages",
@@ -192,8 +191,8 @@ export const DataProvider = ({ children }) => {
                     {
                         heading: 'Outils Pédagogiques',
                         icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                        iconAlt:"GIF inline d'une tasse de café",
-                        description: "Les dispositifs mis en place pour une formation de qualité :",                        
+                        iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
+                        description: "Les dispositifs mis en place pour une formation de qualité :",
                         items: [
                             "Présentiel",
                             "Diaporama",
@@ -206,21 +205,21 @@ export const DataProvider = ({ children }) => {
                 {
                     moreInfoLink: "https://candidat.francetravail.fr/marche-du-travail/fichemetierrome?codeRome=N2203",
                     signupLink: "https://myairportacademy.com/inscription/",
-                    },
+                },
             ]
         },
-        securityAgent: {
+        securityAgent: {// Security Agent data
             image: "https://myairportacademy.com/wp-content/uploads/2024/04/securite-1.jpg",
-            imgAlt:"Agent de sûreté aéroportuaire",
-            title: "Agent de sûreté aéroportuaire",
+            imgAlt: "Agent de sureté noir ouvrant un sac. Il est dans un aéroport et porte un uniforme blanc et bleu marine. Il porte aussi des gants en latex.",
+            title: "Agent de Sûreté Aéroportuaire",
             description: "L\’Agent de Sûreté Aéroportuaire en France, et en particulier en Île-de-France, où se trouvent des aéroports internationaux <br /> majeurs comme Charles de Gaulle (CDG), le Bourget (LBG) et Orly (ORY), joue un rôle crucial dans <br /> la sécurité des passagers, des équipages, et des infrastructures aéroportuaires. Cette profession est dédiée à <br />prévenir toute forme de menace à la sécurité aérienne, notamment les actes de terrorisme, la contrebande, ou <br />tout autre crime.",
             section: [
                 {
                     bgColor: '#2face2',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Métier',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-Depart.gif",
-                    iconAlt:"GIF inline d'un avion",
+                    iconAlt: "GIF inline d'un avion noir sur fond orange et cartouche noir et écriture grise noir sur fond orange et cartouche noir et écriture grise",
                     description: "Les missions spécifiques de l'Agent de Sûreté Aéroportuaire :",
                     items: [
                         "Inspection/Filtrage des Passagers et Bagages Cabine – IFPBC",
@@ -235,10 +234,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#141414',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Générale',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     description: "Compétences générales de l'Agent de Sûreté Aéroportuaire :",
                     items: [
                         "Sauveteur secouriste du travail",
@@ -250,10 +249,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#e58e4f',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation réglementaire',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-1714049788560.gif",
-                    iconAlt:"GIF inline d'un contrôle de passeport aéroportuaire",
+                    iconAlt: "GIF inline d'un contrôle de passeport aéroportuaire sur fond bleu et cartouche noir et écriture grise",
                     description: "Connaissances sécuritaires et réglementaires :",
                     items: [
                         "Sensibilisation législation aéroportuaire",
@@ -270,7 +269,7 @@ export const DataProvider = ({ children }) => {
                 {
                     heading: 'Outils Pédagogiques',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                    iconAlt:"GIF inline d'une tasse de café",
+                    iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
                     description: "Les dispositifs mis en place pour une formation de qualité :",
                     items: [
                         "Présentiel",
@@ -283,24 +282,24 @@ export const DataProvider = ({ children }) => {
                 {
                     moreInfoLink: "https://candidat.francetravail.fr/marche-du-travail/fichemetierrome?codeRome=K2503",
                     signupLink: "https://myairportacademy.com/inscription/",
-                    },
+                },
             ]
-        }, 
-        groundHandlingAgent:{
-        img: "https://myairportacademy.com/wp-content/uploads/2024/04/ground-handling-1.jpg",
-            imgAlt:"Agent d'escale",
+        },
+        groundHandlingAgent: {
+            img: "https://myairportacademy.com/wp-content/uploads/2024/04/ground-handling-1.jpg",
+            imgAlt: "Agent d'escale noire en uniforme noir, portant le chignon réceptionnant le billet d'un voyageur noir portant un ensemble en jean et un sac à dos beige. Il porte des lunettes de soleil dorées. Ils sont séparés par un comptoir d'enregistrement dans un aéroport.",
             title: "Agent d'escale",
-            description: "L'Agent d'Escale en France est un professionnel...",
+            description: "Le métier d'Agent d'Escale aéroportuaire, aussi connu sous le nom d'agent d'escale commercial ou agent de service à la clientèle aéroportuaire, joue un rôle crucial dans le bon fonctionnement des aéroports, notamment en France et plus spécifiquement en Île-de-France, où se trouvent certains des aéroports les plus fréquentés du pays, comme Roissy-Charles de Gaulle, le Bourget et Orly.",
             section: [
                 {
                     bgColor: '#2face2',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Métier',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-Depart.gif",
-                    iconAlt:"GIF inline d'un avion",
+                    iconAlt: "GIF inline d'un avion noir sur fond orange et cartouche noir et écriture grise",
                     description: "Les missions spécifiques de l'Agent d'Escale :",
                     items: [
-                        "Connaitre l’environnement et les acteurs aéroportuaire...",
+                        "Connaitre l’environnement et les acteurs aéroportuaire (co-activité / alphabet aéroportuaire / SGS / environnement de la piste)",
                         "Code IATA + typologie des passagers + passager à particularité",
                         "Les différentes missions de l\’agent d’escale / les positionnements / les particularités du métier en fonction des compagnies aériennes",
                         "Connaissance des procédures d\’enregistrement",
@@ -314,10 +313,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#141414',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Générale',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     description: "Compétences générales de l'Agent d'Escale :",
                     items: [
                         "Découverte de l’aéroport et mise en situation réelle avec les passagers",
@@ -329,13 +328,14 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#e58e4f',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation réglementaire',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-1714049788560.gif",
-                    iconAlt:"GIF inline d'un contrôle de passeport aéroportuaire",
+                    iconAlt: "GIF inline d'un contrôle de passeport aéroportuaire sur fond bleu et cartouche noir et écriture grise",
                     description: "Connaissances sécuritaires et réglementaires :",
                     items: [
-                        "Sensibilisation législation aéroportuaire...",
+                        "Sensibilisation législation aéroportuaire (être en mesure de connaitre et comprendre l’application des différents règlements à l’échelle internationale et européenne) / instances internationales / code OACI",
+                        "Sécurité aéroportuaire (Les FOD / règles de prévention / la touchée / type d’embarquement) / Acquérir l’accès piéton aux secteurs TRA et MAN des plateformes du groupe ADP",
                         "Module sûreté Contributeur 11.2.3.8 + TCA - Connaissance de la vérification de concordance entre les passagers et leurs bagages de soute",
                         "Module sûreté Contributeur 11.2.8 - Connaissance de la cyber sécurité",
                         "Marchandises Dangereuses DGR 8",
@@ -344,7 +344,7 @@ export const DataProvider = ({ children }) => {
                 {
                     heading: 'Outils Pédagogiques',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                    iconAlt:"GIF inline d'une tasse de café",
+                    iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
                     description: "Les dispositifs mis en place pour une formation de qualité :",
                     items: [
                         "Présentiel",
@@ -357,21 +357,21 @@ export const DataProvider = ({ children }) => {
                 {
                     moreInfoLink: "https://candidat.francetravail.fr/marche-du-travail/fichemetierrome?codeRome=N2201",
                     signupLink: "https://myairportacademy.com/inscription/",
-                    },
+                },
             ]
         },
-        ImportExportAgent:{
+        ImportExportAgent: {
             img: "https://myairportacademy.com/wp-content/uploads/2024/04/import-export-1.jpg",
-            imgAlt:"Assistante vue de face, assise devant un ordinateur portable blanc sur une table ronde blanche. Elle porte une robe rouge, cheveux bruns lâchés. En arrière plan une salle avec des murs vitrées",
+            imgAlt: "Assistante vue de face, assise devant un ordinateur portable blanc sur une table ronde blanche. Elle porte une robe rouge, cheveux bruns lâchés. En arrière plan une salle avec des murs vitrées",
             title: "Assistant Import-Export",
             description: "Le métier d’Assistant Import-Export est un rôle clé dans le domaine du commerce international. Cette profession implique de gérer les opérations d'importation et d'exportation de marchandises, en assurant la coordination et la logistique nécessaires pour le bon déroulement des échanges internationaux. En Île-de-France, région économiquement dynamique et dotée d'infrastructures majeures comme le port de Gennevilliers et l'aéroport Charles de Gaulle, les assistants import-export jouent un rôle crucial dans le soutien des activités commerciales transfrontalières.",
             section: [
                 {
                     bgColor: '#2face2',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'CCP1 - Administrer les ventes et les achats à l\'international en français et en anglais',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     items: [
                         "Elaborer une offre à l'international et en assurer le suivi - Incoterms, Anglais niveau B2, PBIS (Pratiques Bancaires Internationales Standard)",
                         "Traiter les commandes à l'international - RUU (Règles et Usances Uniformes) de la Chambre de Commerce internationale (ICC)",
@@ -380,10 +380,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#141414',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'CCP 2 - Optimiser les opérations logistiques internationales en français et en anglais',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     items: [
                         "Coordonner les opérations d'acheminement à l'international - Connaissement (B/L), Lettre de transport aérien (LTA), Lettre de voiture (CMR)",
                         "Traiter les litiges transport et logistique à l'international",
@@ -392,10 +392,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#e58e4f',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'CCP 3 - Assurer les fonctions de support au développement commercial en français et en anglais',
-                    icon:"https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                    iconAlt:"GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
+                    icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
+                    iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue orange sur fond bleu et cartouche orange et écriture bleue",
                     items: [
                         "Promouvoir l'image de l'entreprise à l'international - Données et respect du Règlement Général sur la Protection des Données (RGPD), Principes fondamentaux de l'Organisation mondiale du commerce (OMC)",
                         "Contribuer à l'optimisation des achats et au développement des ventes à l'international",
@@ -406,7 +406,7 @@ export const DataProvider = ({ children }) => {
                 {
                     heading: 'Outils Pédagogiques',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                    iconAlt:"GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
+                    iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue orange sur fond bleu et cartouche orange et écriture bleue",
                     description: "Les dispositifs mis en place pour une formation de qualité :",
                     items: [
                         "Présentiel",
@@ -419,21 +419,21 @@ export const DataProvider = ({ children }) => {
                 {
                     moreInfoLink: "https://candidat.francetravail.fr/marche-du-travail/fichemetierrome?codeRome=D1409",
                     signupLink: "https://myairportacademy.com/inscription/",
-                    },
-            ]    
+                },
+            ]
         },
         AirportPMRAgent: {
             img: "https://myairportacademy.com/wp-content/uploads/2024/04/agent-pmr-1.jpg",
-            imgAlt:"Agent PMR",
-            title: "Agent APMR (Assistant de Personne à Mobilité Réduite) blanche souriante au cheveux auburn, portant une chemise en jean bleue, et un jean beige un pantalon qui pousse un homme en tenue militaire de camouflage, assis sur une chaise roulante, tenant entre ses jambes un sac à dos vert foncé et un drapeau états-uniens. Il sourit à l'APMR. Ils sont de 3/4 face dans un hall d'attente d'un aéroport",
+            imgAlt: "Agent APMR (Assistant de Personne à Mobilité Réduite) blanche souriante au cheveux auburn, portant une chemise en jean bleue, et un jean beige un pantalon qui pousse un homme en tenue militaire de camouflage, assis sur une chaise roulante, tenant entre ses jambes un sac à dos vert foncé et un drapeau états-uniens. Il sourit à l'APMR. Ils sont de 3/4 face dans un hall d'attente d'un aéroport",
+            title: "Agent APMR",
             description: "L'Agent PMR, ou Agent Passager à Mobilité Réduite, est un professionnel de l'aéroportuaire dont la mission est d'assister les passagers en situation de handicap ou à mobilité réduite. En France, et plus particulièrement en Île-de-France, où se trouvent des aéroports internationaux majeurs comme Charles de Gaulle (CDG), le Bourget (LBG) et Orly (ORY), l'Agent PMR joue un rôle crucial dans l'accessibilité et le confort des voyageurs aériens. Cette profession est dédiée à garantir une expérience de voyage sûre et agréable pour tous les passagers, quelles que soient leurs particularités.",
             section: [
                 {
                     bgColor: '#2face2',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Métier',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-Depart.gif",
-                    iconAlt:"GIF inline d'un avion",
+                    iconAlt: "GIF inline d'un avion noir sur fond orange et cartouche noir et écriture grise",
                     description: "Les missions spécifiques d'un Agent PMR :",
                     items: [
                         "Connaitre l’environnement et les acteurs aéroportuaire (co-activité / alphabet aéroportuaire / SGS / environnement de la piste)",
@@ -445,10 +445,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#141414',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Générale',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     description: "Compétences générales de l'Agent PMR :",
                     items: [
                         "Découverte de l’aéroport et mise en situation réelle avec les passagers",
@@ -460,10 +460,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#e58e4f',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation réglementaire',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-1714049788560.gif",
-                    iconAlt:"GIF inline d'un contrôle de passeport aéroportuaire",
+                    iconAlt: "GIF inline d'un contrôle de passeport aéroportuaire sur fond bleu et cartouche noir et écriture grise",
                     description: "Connaissances sécuritaires et réglementaires :",
                     items: [
                         "Sensibilisation législation aéroportuaire (être en mesure de connaitre et comprendre l’application des différents règlements à l’échelle internationale et européenne) / instances internationales / code OACI",
@@ -474,7 +474,7 @@ export const DataProvider = ({ children }) => {
                 {
                     heading: 'Outils Pédagogiques',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                    iconAlt:"GIF inline d'une tasse de café",
+                    iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
                     description: "Les dispositifs mis en place pour une formation de qualité :",
                     items: [
                         "Présentiel",
@@ -487,87 +487,87 @@ export const DataProvider = ({ children }) => {
                 {
                     moreInfoLink: "https://candidat.francetravail.fr/marche-du-travail/fichemetierrome?codeRome=N2201",
                     signupLink: "https://myairportacademy.com/inscription/",
-                    },
-                ]
-            },
-            MealTrayPreparer: {
-                img: "https://myairportacademy.com/wp-content/uploads/2024/04/preparateur-plateaux-repas-1.jpg",
-                imgAlt:"Préparateur de plateaux repas",
-                title: "Préparateur de Plateaux Repas",
-                description: "Le métier de Préparateur de Plateaux Repas est un rôle clé dans le secteur de l'aviation. Cette profession implique de préparer et de distribuer les repas servis à bord des avions, en veillant à la qualité, à l'hygiène et à la sécurité alimentaire. En Île-de-France, région économiquement dynamique et dotée d'infrastructures majeures comme les aéroports de Roissy-Charles de Gaulle (CDG) et d'Orly (ORY), les préparateurs de plateaux repas jouent un rôle crucial dans le confort et la satisfaction des passagers aériens.",
-                section: [
-                    {
-                        bgColor: '#2face2',
-                        color:'#fefefe',
-                        heading: 'CCP1 - Préparer les plateaux repas en respectant les règles d’hygiène et de sécurité alimentaire',
-                        description: "Les missions spécifiques d'un Préparateur de Plateaux Repas :",
-                        icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                        iconAlt:"GIF inline d'un check-in aéroportuaire",
-                        items: [
-                            "Connaître les règles d’hygiène et de sécurité alimentaire",
-                            "Préparer les plateaux repas en respectant les normes de qualité et de présentation",
-                            "Gérer les stocks et les commandes de produits alimentaires",
-                            "Assurer la traçabilité des produits et des préparations",
-                        ]
-                    },
-                    {
-                        bgColor: '#141414',
-                        color:'#fefefe',
-                        heading: 'Formation Générale',
-                        description: "Compétences générales du Préparateur de Plateaux Repas :",
-                        icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                        iconAlt:"GIF inline d'un check-in aéroportuaire",
-                        items: [
-                            "Facteurs humains",
-                            "Préparer les entretiens de sélection",
-                        ]
-                    },
-                    {
-                        bgColor: '#e58e4f',
-                        color:'#fefefe',
-                        heading: 'Formation réglementaire',
-                        description: "Connaissances sécuritaires et réglementaires :",
-                        icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-1714049788560.gif",
-                        iconAlt:"GIF inline d'un contrôle de passeport aéroportuaire",
-                        items: [
-                            "Sensibilisation législation aéroportuaire (être en mesure de connaitre et comprendre l’application des différents règlements à l’échelle internationale et européenne) / instances internationales / code OACI",
+                },
+            ]
+        },
+        MealTrayPreparer: {
+            img: "https://myairportacademy.com/wp-content/uploads/2024/04/preparateur-plateaux-repas-1.jpg",
+            imgAlt: "Une main gantée bleue dépose des carottes dans des plats en plastique noir contenant du poulet et des haricots verts",
+            title: "Préparateur de Plateaux Repas",
+            description: "Le métier de Préparateur de Plateaux Repas est un rôle clé dans le secteur de l'aviation. Cette profession implique de préparer et de distribuer les repas servis à bord des avions, en veillant à la qualité, à l'hygiène et à la sécurité alimentaire. En Île-de-France, région économiquement dynamique et dotée d'infrastructures majeures comme les aéroports de Roissy-Charles de Gaulle (CDG) et d'Orly (ORY), les préparateurs de plateaux repas jouent un rôle crucial dans le confort et la satisfaction des passagers aériens.",
+            section: [
+                {
+                    bgColor: '#2face2',
+                    color: '#fefefe',
+                    heading: 'CCP1 - Préparer les plateaux repas en respectant les règles d’hygiène et de sécurité alimentaire',
+                    description: "Les missions spécifiques d'un Préparateur de Plateaux Repas :",
+                    icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
+                    items: [
+                        "Connaitre l’environnement et les acteurs aéroportuaire (co-activité / alphabet aéroportuaire / SGS / environnement de la piste)",
+                        "Code IATA + typologie des passagers + passager à particularité",
+                        "Le catering aéroportuaire / sensibilisation aux normes HACCP",
+                        "Nettoyage avion (clean & search) / types avion / méthode de nettoyage cabine / techniques de base de nettoyage / temps d’intervention",
+                    ]
+                },
+                {
+                    bgColor: '#141414',
+                    color: '#fefefe',
+                    heading: 'Formation Générale',
+                    description: "Compétences générales du Préparateur de Plateaux Repas :",
+                    icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
+                    items: [
+                        "Facteurs humains",
+                        "Préparer les entretiens de sélection",
+                    ]
+                },
+                {
+                    bgColor: '#e58e4f',
+                    color: '#fefefe',
+                    heading: 'Formation réglementaire',
+                    description: "Connaissances sécuritaires et réglementaires :",
+                    icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-1714049788560.gif",
+                    iconAlt: "GIF inline d'un contrôle de passeport aéroportuaire sur fond bleu et cartouche noir et écriture grise",
+                    items: [
+                        "Sensibilisation législation aéroportuaire (être en mesure de connaitre et comprendre l’application des différents règlements à l’échelle internationale et européenne) / instances internationales / code OACI",
                         "Sécurité aéroportuaire (Les FOD / règles de prévention / la touchée / type d’embarquement) / Acquérir l’accès piéton aux secteurs TRA et MAN des plateformes du groupe ADP",
                         "Module sûreté Contributeur 11.2.3.6 - Connaissance de la Fouille de sûreté",
                         "Module sûreté Contributeur 11.2.3.10 - Connaissance des variantes d’approvisionnement de bord",
-                        ]
-                    },
-                    {
-                        heading: 'Outils Pédagogiques',
-                        description: "Les dispositifs mis en place pour une formation de qualité :",
-                        icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                        iconAlt:"GIF inline d'une tasse de café",
-                        items: [
-                            "Présentiel",
-                            "Diaporama",
-                            "Ordinateur / Support de cours papier",
-                            "Paperbord / Ecran interactif",
-                            "Formation terrain / Mise en situation",
-                        ]
-                    },
-                    {
-                        moreInfoLink: "https://candidat.francetravail.fr/metierscope/fiche-metier/G1603/equipier-polyvalent-equipiere-polyvalente-de-restauration-rapide",
-                        signupLink: "https://myairportacademy.com/inscription/",
-                        },
-                ]
-            },
+                    ]
+                },
+                {
+                    heading: 'Outils Pédagogiques',
+                    description: "Les dispositifs mis en place pour une formation de qualité :",
+                    icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
+                    iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
+                    items: [
+                        "Présentiel",
+                        "Diaporama",
+                        "Ordinateur / Support de cours papier",
+                        "Paperbord / Ecran interactif",
+                        "Formation terrain / Mise en situation",
+                    ]
+                },
+                {
+                    moreInfoLink: "https://candidat.francetravail.fr/metierscope/fiche-metier/G1603/equipier-polyvalent-equipiere-polyvalente-de-restauration-rapide",
+                    signupLink: "https://myairportacademy.com/inscription/",
+                },
+            ]
+        },
 
         welcomeAgent: {
             img: "https://myairportacademy.com/wp-content/uploads/2024/04/agent-daccueil-1.jpg",
-            imgAlt:"Agent welcome blanche vu de face en uniforme bleu marine, chemise blanche et foulard bleu et rose, avec les cheveux attaché style elfe ; réceptionnant le billet dans le passeport d'un voyageur blanc aux cheveux poivre et sel, portant un costume sombre, une chemise blanche, une montre à bracelet marron et des lunettes. Vu de coté. Ils sont séparés par un comptoir d'accueil dans un aéroport.",
+            imgAlt: "Agent welcome blanche vu de face en uniforme bleu marine, chemise blanche et foulard bleu et rose, avec les cheveux attaché style elfe ; réceptionnant le billet dans le passeport d'un voyageur blanc aux cheveux poivre et sel, portant un costume sombre, une chemise blanche, une montre à bracelet marron et des lunettes. Vu de coté. Ils sont séparés par un comptoir d'accueil dans un aéroport.",
             title: "Agent d'accueil",
             description: "L'Agent Welcome, souvent rencontré dans les contextes aéroportuaires en France, et tout particulièrement en Île-de-France, joue un rôle crucial dans l'accueil et l'orientation des visiteurs, des touristes et des voyageurs. Cette profession, axée sur le service client, est essentielle pour offrir une première impression positive et pour aider les gens à naviguer dans des environnements souvent complexes et très fréquentés, comme les aéroports de Paris-Charles de Gaulle (CDG), le Bourget (LBG) et Paris-Orly (ORY).",
             section: [
                 {
                     bgColor: '#2face2',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Métier',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     description: "Les missions spécifiques de l'Agent d'accueil :",
                     items: [
                         "Connaitre l’environnement et les acteurs aéroportuaire (co-activité / alphabet aéroportuaire / SGS / environnement de la piste)",
@@ -579,10 +579,10 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#141414',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'Formation Générale',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-check-in.gif",
-                    iconAlt:"GIF inline d'un check-in aéroportuaire",
+                    iconAlt: "GIF inline d'un check-in bleu aéroportuaire sur fond orange et cartouche bleue et écriture orange",
                     description: "Compétences générales de l'Agent d'accueil :",
                     items: [
                         "Découverte de l’aéroport et mise en situation réelle avec les passagers",
@@ -594,21 +594,21 @@ export const DataProvider = ({ children }) => {
                 },
                 {
                     bgColor: '#e58e4f',
-                    color:'#fefefe',
+                    color: '#fefefe',
                     heading: 'sécuritaires et réglementaires :',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-1714049788560.gif",
-                    iconAlt:"GIF inline d'un contrôle de passeport aéroportuaire",
+                    iconAlt: "GIF inline d'un contrôle de passeport aéroportuaire sur fond bleu et cartouche noir et écriture grise",
                     description: "Connaissances sécuritaires et réglementaires :",
                     items: [
                         "Sensibilisation législation aéroportuaire (être en mesure de connaitre et comprendre l’application des différents règlements à l’échelle internationale et européenne) / instances internationales / code OACI",
                         "Sécurité aéroportuaire (Les FOD / règles de prévention / la touchée / type d’embarquement) / Acquérir l’accès piéton aux secteurs TRA et MAN des plateformes du groupe ADP",
                         ">Module sûreté Contributeur 11.2.3.8 + TCA - Connaissance de la vérification de concordance entre les passagers et leurs bagages de soute",
-                    ]                  
+                    ]
                 },
                 {
                     heading: 'Outils Pédagogiques',
                     icon: "https://myairportacademy.com/wp-content/uploads/2024/04/Animation-coffee.gif",
-                    iconAlt:"GIF inline d'une tasse de café",
+                    iconAlt: "GIF inline d'une tasse de café orange sur fond bleu et cartouche orange et écriture bleue",
                     description: "Les dispositifs mis en place pour une formation de qualité :",
                     items: [
                         "Présentiel",
@@ -619,8 +619,8 @@ export const DataProvider = ({ children }) => {
                     ]
                 },
                 {
-                moreInfoLink: "https://candidat.francetravail.fr/marche-du-travail/fichemetierrome?codeRome=M1601",
-                signupLink: "https://myairportacademy.com/inscription/",
+                    moreInfoLink: "https://candidat.francetravail.fr/marche-du-travail/fichemetierrome?codeRome=M1601",
+                    signupLink: "https://myairportacademy.com/inscription/",
                 },
             ]
         },
