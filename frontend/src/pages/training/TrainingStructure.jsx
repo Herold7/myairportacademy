@@ -1,4 +1,5 @@
 import React from 'react';
+import { useAgent } from './TrainingContext';
 import { Container, Columns, Column, Image, Heading, SubHeading, Paragraph, List, ListItem, ButtonContainer, Button } from './styledComponents';
 
 const TrainingStructure = ({ data }) => {
