@@ -1,4 +1,8 @@
 import React from 'react';
+import assessment from '../../assets/img/back/capacityAssessment.webp';
+import certification from '../../assets/img/back/certification.webp';
+import exam from '../../assets/img/back/exam.webp';
+import training from '../../assets/img/back/training.webp';
 import './Course.css'; // Assurez-vous d'importer le fichier CSS correspondant
 
 const Course = () => {
@@ -16,22 +20,22 @@ const Course = () => {
                 <div className="columns-section alignwide" style={{ paddingRight: 'var(--wp--preset--spacing--50)', paddingLeft: 'var(--wp--preset--spacing--50)' }}>
                     {[
                         {
-                            imgSrc: "https://myairportacademy.com/wp-content/uploads/2024/04/DALL·E-2024-04-22-16.02.25-In-a-modern-office-setting-a-young-white-man-and-a-lighter-skinned-black-woman-sit-two-meters-apart-facing-each-other-across-a-large-rectangular-tab.webp",
+                            imgSrc: assessment,
                             altText: "Dans un bureau moderne, un jeune homme blanc et une femme noire à la peau plus claire sont assis à deux mètres l'un de l'autre, face à face sur une grande tablette rectangulaire.",
                             title: "Evaluation des capacités"
                         },
                         {
-                            imgSrc: "https://myairportacademy.com/wp-content/uploads/2024/04/Interrogation.webp",
+                            imgSrc: training,
                             altText: "Des apprenants sont assis dans une salle de cours, chacun devant un bureau. Ils sont en train d'écrire sur des feuilles",
                             title: "Formation & Tests"
                         },
                         {
-                            imgSrc: "https://myairportacademy.com/wp-content/uploads/2024/04/Certification.webp",
+                            imgSrc: certification,
                             altText: "Des apprenants tiennent des diplômes entre leurs mains. Ils sont debout dans une salle de cours. Ils ont tous le sourire, sont de sexe et de couleurs différentes, et regardent tous du même côté",
                             title: "Certification"
                         },
                         {
-                            imgSrc: "https://myairportacademy.com/wp-content/uploads/2024/04/DALL·E-2024-04-22-12.14.30-In-an-airport-setting-a-diverse-group-of-young-candidates-predominantly-women-including-Black-individuals-and-other-people-of-color-are-lined-up-f.webp",
+                            imgSrc: exam,
                             altText: "Dans un aéroport, un groupe diversifié de jeunes candidats, principalement des femmes, y compris des Noirs et d'autres personnes de couleur, sont alignés face une agent d'escale",
                             title: "Entretien d'embauche"
                         }
