@@ -1,5 +1,4 @@
 import React, { createContext, useContext } from 'react';
-import styled from 'styled-components';
 
 // Contexte pour les données de l'agent
 const AgentContext = createContext();
