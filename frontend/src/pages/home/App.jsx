@@ -1,97 +1,63 @@
 import React from "react";
+import plane from '../../assets/images/plane.webp';
+import tarmac from '../../assets/images/tarmac.webp';
+import airportCounter from '../../assets/images/airportCounter.webp';
+import airportHall from '../../assets/images/airportHall.webp';
+import introduction from '../../assets/videos/introduction.mp4';
+import logo_formationscertifiantes from '../../assets/img/logo/logo_formationscertifiantes.png';
+import jdelatorrenoir from '../../assets/img/team/jdelatorrenoir.jpg';
+
 import './App.css'; // Assurez-vous d'importer le fichier CSS correspondant
 
 const App = () => {
     return (
         <>
-            <div className="cover" style={{ color: '#fefefe', minHeight: '100vh' }}>
-                <img
-                    className="cover-image"
-                    style={{ objectPosition: '50% 0%' }}
-                    src="https://myairportacademy.com/wp-content/uploads/2024/04/tiitus-saaristo-uIKfKTFge0Y-unsplash.jpg"
-                    alt="piste d'atterrissage d'aéroport illuminée vue de nuit"
-                />
-                <div className="cover-inner">
-                    <h1
-                        className="cover-heading"
-                        style={{ fontSize: '86px', fontStyle: 'normal', fontWeight: 'bold' }}
-                    >
-                        Airport Training Academy
-                    </h1>
-                    <div className="content-group">
-                        <p
-                            className="cover-paragraph"
-                            style={{ color: '#ffffffbf', marginBottom: 'var(--spacing-60)' }}
-                        >
-                            Votre centre de formation de référence dans l'aéroportuaire.
-                        </p>
-                    </div>
-                    <div className="button-group" style={{ marginTop: 0, marginBottom: 0 }}>
-                        <a
-                            className="cover-button"
-                            style={{
-                                borderStyle: 'none',
-                                borderWidth: 0,
-                                borderRadius: '100px',
-                                paddingRight: 'var(--spacing-60)',
-                                paddingLeft: 'var(--spacing-60)',
-                            }}
-                            href="#resultats"
-                        >
-                            Commençons ⬇︎
-                        </a>
-                    </div>
+            <div className="cover text-white d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', backgroundImage: 'url(header)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+                <div className="text-center">
+                    <h1 className="display-1 font-weight-bold">Airport Training Academy</h1>
+                    <p className="lead" style={{ color: '#ffffffbf' }}>Votre centre de formation de référence dans l'aéroportuaire.</p>
+                    <a className="btn btn-primary btn-lg rounded-pill" href="#resultats">Commençons ⬇︎</a>
                 </div>
             </div>
 
-            <p id="resultats" style={{ scrollBehavior: 'smooth' }}> </p>
+            <p id="resultats" className="my-5"> </p>
 
-            <div className="columns" style={{ paddingTop: 'var(--spacing-70)', paddingBottom: 'var(--spacing-70)' }}>
-                {[
-                    { text: "+2100", subtext: "Apprenants formés" },
-                    { text: "96%", subtext: "reussite aux tests" },
-                    { text: "98,7%", subtext: "apprenants en emploi" },
-                    { text: "97,6%", subtext: "apprenants satisfaits" },
-                ].map((item, index) => (
-                    <div className="column" key={index}>
-                        <div className="column-content">
-                            <p className="column-text">{item.text}</p>
-                            <p className="column-subtext">{item.subtext}</p>
+            <div className="container py-5">
+                <div className="row text-center">
+                    {[
+                        { text: "+2100", subtext: "Apprenants formés" },
+                        { text: "96%", subtext: "reussite aux tests" },
+                        { text: "98,7%", subtext: "apprenants en emploi" },
+                        { text: "97,6%", subtext: "apprenants satisfaits" },
+                    ].map((item, index) => (
+                        <div className="col-lg-3 col-md-6 mb-4" key={index}>
+                            <div className="p-4">
+                                <p className="h1">{item.text}</p>
+                                <p>{item.subtext}</p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
 
-            <div className="why-choose-us">
-                <div className="content">
-                    <h2 className="content-heading">Pourquoi nous choisir ?</h2>
-                    <p className="content-paragraph">
-                        Situé au cœur du Parc Icade Paris Orly-Rungis, Airport Training Academy représente l'engagement vers l'excellence, le professionnalisme, et la rigueur dans la formation aéroportuaire. Notre mission est de forger les professionnels de demain dans le secteur aéroportuaire, en leur fournissant une formation complète, rigoureuse et adaptée aux défis contemporains du secteur.
-                    </p>
-                </div>
-                <div className="content-dedicated-pages">
-                    <p className="dedicated-pages-title">Nos pages Dédiées</p>
-                    <h2 className="dedicated-pages-heading">Pour en savoir plus</h2>
-                    <div className="columns">
+            <div className="why-choose-us py-5 bg-light">
+                <div className="container">
+                    <h2 className="text-center mb-4">Pourquoi nous choisir ?</h2>
+                    <p className="text-center">Situé au cœur du Parc Icade Paris Orly-Rungis, Airport Training Academy représente l'engagement vers l'excellence, le professionnalisme, et la rigueur dans la formation aéroportuaire. Notre mission est de forger les professionnels de demain dans le secteur aéroportuaire, en leur fournissant une formation complète, rigoureuse et adaptée aux défis contemporains du secteur.</p>
+                    <div className="row mt-5">
                         {[
-                            { imgId: 92, title: "Les Témoignages", description: "Découvrez les avis de ceux qui ont suivis nos formations, et laissez-vous guider par leurs témoignages vers votre propre trajectoire professionnelle.", link: "temoignages" },
-                            { imgId: 91, title: "Nos Formations", description: "Embarquez pour une aventure éducative unique, où chaque cours est une escale vers la professionnalisation aéroportuaire.", link: "formations" },
-                            { imgId: 91, title: "Contact / FAQ", description: "Vous avez des questions ? Plongez dans notre FAQ afin de gagner en clarté sur les détails de votre parcours de formation ou prenez contact avec nous.", link: "contact" },
-                            { imgId: 93, title: "Notre Blog", description: "Suivez notre blog où chaque article vous embarque dans un voyage au cœur du secteur de l'aéroportuaire et de ses innombrables innovations.", link: "blog" },
+                            { imgSrc: plane, imgAlt: "Une photo sophistiquée et élégante d'un avion avec une palette de couleurs dominée par des teintes orange et bleues. L'avion est élégant et moderne." , title: "Les Témoignages", description: "Découvrez les avis de ceux qui ont suivis nos formations, et laissez-vous guider par leurs témoignages vers votre propre trajectoire professionnelle.", link: "temoignages" },
+                            { imgSrc: tarmac, imgAlt: "Une photo sophistiquée et élégante d'un aéroport avec une palette de couleurs orange et bleue. La scène présente une architecture moderne et élégante avec de grandes vitres.", title: "Nos Formations", description: "Embarquez pour une aventure éducative unique, où chaque cours est une escale vers la professionnalisation aéroportuaire.", link: "formations" },
+                            { imgSrc: airportCounter, imgAlt: "Une photo réaliste et élégante montrant deux agents au sol d'une compagnie aérienne dans un hall d'aéroport. L'agent féminin porte un uniforme élégant avec un foulard", title: "Contact / FAQ", description: "Vous avez des questions ? Plongez dans notre FAQ afin de gagner en clarté sur les détails de votre parcours de formation ou prenez contact avec nous.", link: "contact" },
+                            { imgSrc: airportHall, imgAlt: "Une photo sophistiquée et élégante d'un tarmac d'aéroport avec une schéma de couleurs orange et bleu. La scène capture l'activité animée du tarmac", title: "Notre Blog", description: "Suivez notre blog où chaque article vous embarque dans un voyage au cœur du secteur de l'aéroportuaire et de ses innombrables innovations.", link: "blog" },
                         ].map((item, index) => (
-                            <div className="column" key={index}>
-                                <div className="column-content">
-                                    <figure className="column-image">
-                                        <img
-                                            className="image"
-                                            src={`https://myairportacademy.com/wp-content/uploads/2024/04/DALL·E-2024-04-08-12.21.29-Create-a-wide-aspect-ratio-abstract-image-with-dynamic-intertwining-lines-and-light-particles-in-both-blue-and-orange-tones-against-a-light-backgroun.webp`}
-                                            alt={item.title}
-                                        />
-                                    </figure>
-                                    <div className="column-text-content">
-                                        <h3 className="column-heading">{item.title}</h3>
-                                        <p>{item.description}</p>
-                                        <a href={item.link}>En savoir plus →</a>
+                            <div className="col-lg-3 col-md-6 mb-4" key={index}>
+                                <div className="card h-100">
+                                    <img className="card-img-top" src={item.imgSrc} alt={item.imgAlt} />
+                                    <div className="card-body">
+                                        <h5 className="card-title">{item.title}</h5>
+                                        <p className="card-text">{item.description}</p>
+                                        <a href={item.link} className="btn btn-outline-primary">En savoir plus →</a>
                                     </div>
                                 </div>
                             </div>
@@ -100,66 +66,48 @@ const App = () => {
                 </div>
             </div>
 
-            <div className="team-section">
-                <div className="team-content">
-                    <h2 className="team-heading">
-                        Notre équipe à pour objectif de vous préparer au mieux à intégrer efficacement le secteur de l'aéroportuaire.
-                    </h2>
-                    <ul className="team-list">
+            <div className="team-section py-5">
+                <div className="container">
+                    <h2 className="text-center mb-4">Notre équipe à pour objectif de vous préparer au mieux à intégrer efficacement le secteur de l'aéroportuaire.</h2>
+                    <ul className="list-unstyled text-center">
                         <li>Une Pédagogie Innovante et Exigeante.</li>
                         <li>Un Cadre d'Apprentissage Professionnel et Élégant.</li>
                         <li>Une Préparation Rigoureuse pour une Carrière Réussie.</li>
                     </ul>
-                </div>
-                <div className="team-video">
-                    <video
-                        className="video"
-                        src="https://myairportacademy.com/wp-content/uploads/2024/05/Introduction.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        width="300"
-                        height="150"
-                    >
-                        Désolé, votre navigateur ne supporte pas les vidéos embarquées.
-                    </video>
-                </div>
-            </div>
-
-            <div className="certification-section">
-                <div className="certification-content">
-                    <figure className="certification-image">
-                        <img
-                            className="image"
-                            src="https://myairportacademy.com/wp-content/uploads/2024/04/Design-sans-titre-4.png"
-                            alt="Les logos de certifications"
-                        />
-                    </figure>
-                    <div className="certification-text">
-                        <h2>Des certifications reconnues par l'Etat.</h2>
-                        <p>
-                            À l'issue de votre parcours d'apprentissage, un certificat reconnu par l'Etat vous sera remis pour attester de vos nouvelles compétences et les faire valoir sur le marché du travail. Notre organisme détient la certification QUALIOPI, qui est un gage de qualité délivré par l'Etat.
-                        </p>
+                    <div className="text-center mt-4">
+                        <video className="img-fluid" src={introduction} autoPlay loop muted>
+                            Désolé, votre navigateur ne supporte pas les vidéos embarquées.
+                        </video>
                     </div>
                 </div>
             </div>
 
-            <div className="quote-section">
-                <p className="quote">
-                    <em>
-                        "Chez Airport Training Academy, nous croyons que le ciel n'est pas la limite, mais le début de vos rêves. Façonner l'avenir, en alliant passion, expertise et innovation, pour élever chaque professionnel vers de nouveaux horizons."
-                    </em>
-                </p>
-                <div className="quote-author">
-                    <figure className="author-image">
-                        <img
-                            className="image"
-                            src="https://myairportacademy.com/wp-content/uploads/2024/04/J.DeLaTorre-accueil.jpg"
-                            alt="J. De La Torre"
-                        />
-                    </figure>
-                    <p className="author-name">J. De La Torre</p>
-                    <p className="author-title">Directeur Général, Airport Training Academy</p>
+            <div className="certification-section py-5 bg-light">
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-md-6">
+                            <img className="img-fluid" src={logo_formationscertifiantes} alt="Les logos de certifications" />
+                        </div>
+                        <div className="col-md-6">
+                            <h2>Des certifications reconnues par l'Etat.</h2>
+                            <p>À l'issue de votre parcours d'apprentissage, un certificat reconnu par l'Etat vous sera remis pour attester de vos nouvelles compétences et les faire valoir sur le marché du travail. Notre organisme détient la certification QUALIOPI, qui est un gage de qualité délivré par l'Etat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="quote-section py-5">
+                <div className="container text-center">
+                    <p className="quote">
+                        <em>
+                            "Chez Airport Training Academy, nous croyons que le ciel n'est pas la limite, mais le début de vos rêves. Façonner l'avenir, en alliant passion, expertise et innovation, pour élever chaque professionnel vers de nouveaux horizons."
+                        </em>
+                    </p>
+                    <div className="quote-author mt-4">
+                        <img className="rounded-circle" src={jdelatorrenoir} alt="J. De La Torre" style={{ width: '150px', height: '150px' }} />
+                        <p className="author-name mt-3">J. De La Torre</p>
+                        <p className="author-title">Directeur Général, Airport Training Academy</p>
+                    </div>
                 </div>
             </div>
         </>
