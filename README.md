@@ -15,8 +15,8 @@ Le site permet de se renseigner, de prendre rendez-vous, de s'inscrire et de sui
    4. npm i yup (analyse et validation de valeur d’exécution)
    5. npm install react-router-dom localforage match-sorter sort-by (router react)
    6. npm i emailjs
-   7. npm install styled-components
-   8. 
+   7. npm install styled-components (styliser les composants)
+   8. npm i styled-system
    9. package.json
    ```
 
