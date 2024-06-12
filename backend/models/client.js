@@ -10,7 +10,7 @@ const clientSchema = mongoose.Schema({//Schéma de données pour les clients, av
     training: { type: String, required: true },
     consent: { type: Boolean, required: true },
     cv: { type: String, required: true },
-    paymentStatus: { type: String, required: true },
+    paymentStatus: { type: String, required: false },
     created_at: { type: Date, default: Date.now, required: true },//Date de création du client, corresppond à la date actuelle
 })
 
