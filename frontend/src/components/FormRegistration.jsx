@@ -135,13 +135,14 @@ function FormRegistration() {
                                 <div className="mb-3">
                                     <label htmlFor="InputGender" className="form-label">Gender</label>
                                     <select className="form-control form-control-lg" id="InputGender" name="gender" aria-describedby="genderHelp"
-                                        //Utilisation de la méthode register pour lier les champs du formulaire aux règles de validation
+                                        // Utilisation de la méthode register pour lier les champs du formulaire aux règles de validation
                                         {...register('gender')}> 
                                         <option value=""> </option>
                                         <option value="M.">M.</option>
                                         <option value="Mme">Mme</option>
                                     </select>
-                                    {errors.gender && <p id="c-yup">{errors.gender.message}</p>}//Affichage des erreurs
+                                    {/* Affichage des erreurs */}
+                                    {errors.gender && <p id="c-yup">{errors.gender.message}</p>}
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="InputLastname" className="form-label">Nom</label>

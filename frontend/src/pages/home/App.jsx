@@ -1,7 +1,7 @@
 import React from "react";
-import Nav from "../../components/Nav";
+import Nav from "../../components/Nav";// import Nav 
 import FormRegistration from "../../components/FormRegistration";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer";// import Footer
 import header from '../../assets/img/back/header.jpg';
 import plane from '../../assets/img/back/plane.webp';
 import tarmac from '../../assets/img/back/tarmac.webp';
@@ -114,6 +114,7 @@ const App = () => {
                     </div>
                 </div>
             </div>
+        {/* formulaire d'enregistrement */}
             <FormRegistration />
             <Footer />
         </>
