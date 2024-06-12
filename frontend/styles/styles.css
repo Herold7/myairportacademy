@@ -104,3 +104,8 @@ ul {
 a {
     text-decoration: none;
 }
+
+.form-container:hover {
+    border-width: 3px;
+    background-color: var(--container-color);
+}

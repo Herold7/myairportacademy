@@ -59,7 +59,7 @@ function FormContact() {
   return (
     <>
       <section className="container">
-        <div className="form-container">
+        <div className="form-container" style={{ border:'1px solid rgba(229, 142, 79, 1)', transition:'border-width 0,3',}}>
           <p>Les champs suivis d'une * sont obligatoires.</p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
             <div style={{ flex: '0 0 60%' }}>

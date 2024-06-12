@@ -75,7 +75,7 @@ function FormRegistration() {
     return (
       <>
         <section className="container">
-          <div className="form-container">
+          <div className="form-container" style={{ border:'1px solid rgba(229, 142, 79, 1)', transition:'border-width 0,3',}}>
             <p>Les champs suivis d'une * sont obligatoires.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
               <div style={{ flex: '0 0 60%' }}>
@@ -157,7 +157,7 @@ function FormRegistration() {
                     <input type="checkbox" className="form-check-input" id="consent" {...register('consent')} />
                     <label className="form-check-label" htmlFor="consent">J'accepte les conditions d'utilisation</label>
                     {errors.consent && <p id="c-yup">{errors.consent.message}</p>}
-</div>
+                  </div>
                   <button type="button" className="btn btn-primary fs-2" data-bs-toggle="modal"
                     data-bs-target="#Modal">Envoyer</button>
 
