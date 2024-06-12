@@ -1,13 +1,12 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import emailjs from '@emailjs/browser';
-import './FormRegistration.css';
+import { useForm } from "react-hook-form";//Importation du hook useForm
+import { yupResolver } from "@hookform/resolvers/yup";//Importation du validateur pour les formulaires
+import * as yup from "yup";//Importation de yup pour la validation des formulaires
+import emailjs from '@emailjs/browser';//Importation de la bibliothèque EmailJS
 
 function FormRegistration() {
 
-    const validationSchema = yup.object({
+    const validationSchema = yup.object({//Définition des règles de validation
         lastname: yup.string().required("Veuillez renseigner votre nom").matches(/^[a-zA-ZÀ-ÖØ-öø-ÿ\s]{1,50}$/, "Merci de ne pas utiliser de caractères spéciaux").max(50),
         firstname: yup.string().required("Veuillez renseigner votre prénom").matches(/^[a-zA-ZÀ-ÖØ-öø-ÿ\s]{1,50}$/, "Merci de ne pas utiliser de caractères spéciaux").max(50),
         phone: yup.string().required("Veuillez renseigner votre numéro de téléphone")
@@ -35,14 +34,14 @@ function FormRegistration() {
         consent: yup.boolean().oneOf([true], "Vous devez accepter les conditions d'utilisation")
     }).required();
 
-    const { register, formState: { errors }, handleSubmit, reset } = useForm({
+    const { register, formState: { errors }, handleSubmit, reset } = useForm({//Initialisation du hook useForm
         resolver: yupResolver(validationSchema),
     });
 
-    const onSubmit = async (data, r) => {
+    const onSubmit = async (data, r) => {//Fonction de soumission du formulaire
         alert("Merci d'avoir rempli le formulaire");
 
-        const profileData = new FormData();
+        const profileData = new FormData();//Création d'un objet FormData pour les données du formulaire
         profileData.append('lastname', data.lastname);
         profileData.append('firstname', data.firstname);
         profileData.append('phone', data.phone);
@@ -102,7 +101,7 @@ function FormRegistration() {
                             console.log('Email sent successfully!');
                             r.target.reset();
                         })
-                        .catch((err) => {
+                        .catch((err) => {//Gestion des erreurs
                             console.error('There was an error sending the email', err);
                             alert('An error occurred while sending the email');
                         });
@@ -127,7 +126,7 @@ function FormRegistration() {
                     <p>Les champs suivis d'une * sont obligatoires.</p>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
                         <div style={{ flex: '0 0 60%' }}>
-                            <form onSubmit={handleSubmit(onSubmit)}
+                            <form onSubmit={handleSubmit(onSubmit)}//Appel de la fonction de soumission du formulaire
                                 className="mx-5 p-5 shadow border-0 rounded-4 justify-content-md-center"
                                 style={{ marginTop: '7rem', marginBottom: '5rem' }} >
                                 <div className="mb-3">
@@ -136,12 +135,13 @@ function FormRegistration() {
                                 <div className="mb-3">
                                     <label htmlFor="InputGender" className="form-label">Gender</label>
                                     <select className="form-control form-control-lg" id="InputGender" name="gender" aria-describedby="genderHelp"
-                                        {...register('gender')}>
+                                        //Utilisation de la méthode register pour lier les champs du formulaire aux règles de validation
+                                        {...register('gender')}> 
                                         <option value=""> </option>
                                         <option value="M.">M.</option>
                                         <option value="Mme">Mme</option>
                                     </select>
-                                    {errors.gender && <p id="c-yup">{errors.gender.message}</p>}
+                                    {errors.gender && <p id="c-yup">{errors.gender.message}</p>}//Affichage des erreurs
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="InputLastname" className="form-label">Nom</label>
@@ -223,7 +223,7 @@ function FormRegistration() {
                                 <button type="button" className="btn btn-primary fs-2" data-bs-toggle="modal"
                                     data-bs-target="#Modal">Envoyer</button>
 
-                                {/* Modal de validation */}
+                                {/* Modal de confirmation */}
                                 <div className="modal fade" id="Modal" tabIndex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                                     <div className="modal-dialog">
                                         <div className="modal-content">

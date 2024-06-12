@@ -6,7 +6,7 @@ const fs = require('fs');
 //Modification, suppression et lecture accessible uniquement aux users authentifiés
 exports.createClient = (req, res, next) => {
     const client = new Client({
-        ...req.body,
+        ...req.body,//Récupération des données du formulaire
         cv: `${req.protocol}://${req.get('host')}/files/${req.file.filename}`//Génération d'une URL complète lors du téléversement du cv
     });
 

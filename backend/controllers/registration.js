@@ -6,7 +6,7 @@ const sendRegistrationEmail = require('../services/emailServices');
 //Modification, suppression et lecture accessible uniquement aux users authentifiés
 exports.createInterview = (req, res, next) => {
     const interview = new Interview({
-        ...req.body,
+        ...req.body,//Récupération des données du formulaire
     });
     interview.save()
         .then(() => { sendRegistrationEmail(interview); res.status(201).json({ message: 'Interview enregistré !' }) })
