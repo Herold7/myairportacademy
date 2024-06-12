@@ -1,18 +1,17 @@
-// src/DataContext.js
 import React, { createContext, useContext } from 'react';
-import { DataProvider } from './DataContext';
 import bagagge from '../../assets/img/training/agent_bagagiste.jpg';
 import cleaning from '../../assets/img/training/agent_de_nettoyage.webp';
 import security from '../../assets/img/training/agent_de_surete_aeroportuaire.jpg';
 import groundHandling from '../../assets/img/training/agent_descale.webp';
 import importExport from '../../assets/img/training/agent_importexport.jpg';
-import ramp from '../../assets/img/training/agent_de_piste.webp';
+import ramp from '../../assets/img/training/agent_piste.webp';
 import mealTray from '../../assets/img/training/agent_plateaux_repas.webp';
 import apmr from '../../assets/img/training/agent_pmr.webp';
-import checkIn from '../../assets/video/Animation-check-in.gif';
-import coffe from '../../assets/video/Animation-coffee.gif';
-import control from '../../assets/video/Animation-control.gif';
-import depart from '../../assets/video/Animation-Depart.gif';
+import welcome from '../../assets/img/training/agent_welcome.webp';
+import checkIn from '../../assets/video/animation-check-in.gif';
+import coffe from '../../assets/video/animation-coffee.gif';
+import control from '../../assets/video/animation-control.gif';
+import depart from '../../assets/video/animation-depart.gif';
 
 const DataContext = createContext();// DataProvider component
 

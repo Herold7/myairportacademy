@@ -3,7 +3,6 @@ import assessment from '../../assets/img/back/capacityAssessment.webp';
 import certification from '../../assets/img/back/certification.webp';
 import exam from '../../assets/img/back/exam.webp';
 import training from '../../assets/img/back/training.webp';
-import './Course.css'; // Assurez-vous d'importer le fichier CSS correspondant
 
 const Course = () => {
     return (

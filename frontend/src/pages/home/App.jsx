@@ -1,9 +1,13 @@
 import React from "react";
-import plane from '../../assets/images/plane.webp';
-import tarmac from '../../assets/images/tarmac.webp';
-import airportCounter from '../../assets/images/airportCounter.webp';
-import airportHall from '../../assets/images/airportHall.webp';
-import introduction from '../../assets/videos/introduction.mp4';
+import Nav from "../../components/Nav";
+import FormRegistration from "../../components/FormRegistration";
+import Footer from "../../components/Footer";
+import header from '../../assets/img/back/header.jpg';
+import plane from '../../assets/img/back/plane.webp';
+import tarmac from '../../assets/img/back/tarmac.webp';
+import airportCounter from '../../assets/img/back/airportCounter.webp';
+import airportHall from '../../assets/img/back/airportHall.webp';
+import introduction from '../../assets/video/introduction.mp4';
 import logo_formationscertifiantes from '../../assets/img/logo/logo_formationscertifiantes.png';
 import jdelatorrenoir from '../../assets/img/team/jdelatorrenoir.jpg';
 
@@ -11,7 +15,8 @@ import jdelatorrenoir from '../../assets/img/team/jdelatorrenoir.jpg';
 const App = () => {
     return (
         <>
-            <div className="cover text-white d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', backgroundImage: 'url(header)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat:'no-repeat' }}>
+            <div className="cover text-white d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', backgroundImage: `url(${header})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat:'no-repeat' }}>
+                <Nav />
                 <div className="text-center">
                     <h1 className="display-1 font-weight-bold">Airport Training Academy</h1>
                     <p className="lead" style={{ color: '#ffffffbf' }}>Votre centre de formation de référence dans l'aéroportuaire.</p>
@@ -109,6 +114,8 @@ const App = () => {
                     </div>
                 </div>
             </div>
+            <FormRegistration />
+            <Footer />
         </>
     );
 };
