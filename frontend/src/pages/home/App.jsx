@@ -7,7 +7,6 @@ import introduction from '../../assets/videos/introduction.mp4';
 import logo_formationscertifiantes from '../../assets/img/logo/logo_formationscertifiantes.png';
 import jdelatorrenoir from '../../assets/img/team/jdelatorrenoir.jpg';
 
-import './App.css'; // Assurez-vous d'importer le fichier CSS correspondant
 
 const App = () => {
     return (
