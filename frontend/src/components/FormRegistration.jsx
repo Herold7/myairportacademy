@@ -2,7 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";//Importation du hook useForm
 import { yupResolver } from "@hookform/resolvers/yup";//Importation du validateur pour les formulaires
 import * as yup from "yup";//Importation de yup pour la validation des formulaires
-import emailjs from '@emailjs/browser';//Importation de la bibliothèque EmailJS
+import emailjs from "@emailjs/browser";//Importation de la bibliothèque EmailJS
 
 function FormRegistration() {
 
