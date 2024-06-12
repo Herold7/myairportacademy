@@ -104,14 +104,3 @@ ul {
 a {
     text-decoration: none;
 }
-
-.cover {
-    background: url('../src/assets/img/back/header.jpg') no-repeat center center;
-    background-size: cover;
-    color: #fefefe;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}

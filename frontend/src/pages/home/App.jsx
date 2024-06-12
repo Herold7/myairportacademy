@@ -12,7 +12,7 @@ import './App.css'; // Assurez-vous d'importer le fichier CSS correspondant
 const App = () => {
     return (
         <>
-            <div className="cover text-white d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', backgroundImage: 'url(header)', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <div className="cover text-white d-flex align-items-center justify-content-center" style={{ minHeight: '100vh', backgroundImage: 'url(header)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat:'no-repeat' }}>
                 <div className="text-center">
                     <h1 className="display-1 font-weight-bold">Airport Training Academy</h1>
                     <p className="lead" style={{ color: '#ffffffbf' }}>Votre centre de formation de référence dans l'aéroportuaire.</p>
