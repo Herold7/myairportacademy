@@ -1,5 +1,5 @@
 import React from 'react';
-import { DataProvider, useData } from './DataContext';
+import { useData } from './TrainingData';
 import TrainingStructure from './TrainingStructure';
 
 const Training = () => {
@@ -19,11 +19,5 @@ const Training = () => {
         </div>
     );
 };
-
-const Root = () => (
-    <DataProvider>
-        <Training />
-    </DataProvider>
-);
 
 export default Training;
