@@ -10,6 +10,6 @@ router.get('/', auth, profileCtrl.getAllProfiles);
 router.post('/', multer, profileCtrl.createClient);
 router.get('/:id', auth, profileCtrl.getOneClient);
 router.put('/:id', auth, multer, profileCtrl.modifyClient);
-router.delete('/:id', auth, profileCtrl.deleteClient);
+router.delete('/:id', auth, profileCtrl.deleteclient);
 
 module.exports = router;//Export du router vers app.js
