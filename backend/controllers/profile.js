@@ -5,14 +5,28 @@ const fs = require('fs');
 //Middelwares CRUD
 //Modification, suppression et lecture accessible uniquement aux users authentifiés
 exports.createClient = (req, res, next) => {
+    const clientObject = JSON.parse(req.body.client);
+    delete clientObject._id;
+    delete clientObject._userId;
     const client = new Client({
         ...req.body,//Récupération des données du formulaire
-        cv: `${req.protocol}://${req.get('host')}/files/${req.file.filename}`//Génération d'une URL complète lors du téléversement du cv
+        //Génération d'une URL complète lors du téléversement du cv
+        cv: `${req.protocol}://${req.get('host')}/files/${req.file.filename}`
     });
 
     client.save()
-        .then(() => { sendRegistrationEmail(client); res.status(201).json({ message: 'Client enregistré !' }) })
-        .catch(error => { res.status(400).json({ error }) })
+        .then(() => { 
+            sendRegistrationEmail(client)
+                .then(() => {
+                    res.status(201).json({ message: 'Client enregistré !' });
+                })
+                .catch(error => {
+                    res.status(500).json({ error });
+                });
+        })
+        .catch(error => { 
+            res.status(400).json({ error });
+        });
 };
 
 exports.getOneClient = (req, res, next) => {
@@ -22,17 +36,16 @@ exports.getOneClient = (req, res, next) => {
     }
     Client.findOne({
         _id: req.params.id
-    }).then(
-        (client) => {
+    })
+        .then(client => {
+            if (!client || client.userId !== req.auth.userId) {
+                return res.status(403).json({ message: 'Non autorisé' });
+            }
             res.status(200).json(client);
-        }
-    ).catch(
-        (error) => {
-            res.status(404).json({
-                error: error
-            });
-        }
-    );
+        })
+        .catch(error => {
+            res.status(404).json({ error });
+        });
 };
 
 exports.modifyClient = (req, res, next) => {

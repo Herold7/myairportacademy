@@ -1,10 +1,7 @@
-
 const express = require('express');//Import du framework Express
-const bodyParser = require('body-parser'); //Import du package d'accès aux contenus des données transmises par le front
 const mongoose = require('mongoose'); //Import du package mongoose
-const dotenv = require('dotenv').config(); //Import du package dotenv pour la gestion des variables d'environnement
+const dotenv = require('dotenv'); //Import du package dotenv pour la gestion des variables d'environnement
 const cors = require('cors');
-
 
 
 //Import des routes 
@@ -16,6 +13,7 @@ const userRoutes = require('./routes/user');
 const path = require('path');//Module de gestion du système de fichiers
 
 //Connexion au cluster "myairportacademy" de la base de données MongoDB Atlas
+dotenv.config();
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Connexion à MongoDB réussie !'))
     .catch(error => console.error('Connexion à MongoDB échouée !', error));

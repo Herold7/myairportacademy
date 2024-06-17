@@ -2,15 +2,23 @@ const Interview = require('../models/interview');
 const sendRegistrationEmail = require('../services/emailServices');
 
 
-//Middelwares CRUD
-//Modification, suppression et lecture accessible uniquement aux users authentifiés
+// Middlewares CRUD
+// Modification, suppression et lecture accessible uniquement aux utilisateurs authentifiés
 exports.createInterview = (req, res, next) => {
+    const interviewObject = JSON.parse(req.body.user);
+    delete interviewObject._id;
+    delete interviewObject._userId;
     const interview = new Interview({
-        ...req.body,//Récupération des données du formulaire
+        ...interviewObject, // Récupération des données du formulaire
     });
     interview.save()
-        .then(() => { sendRegistrationEmail(interview); res.status(201).json({ message: 'Interview enregistré !' }) })
-        .catch(error => { res.status(400).json({ error }) })
+        .then(() => {
+            sendRegistrationEmail(interview);
+            res.status(201).json({ message: 'Interview enregistré !' });
+        })
+        .catch(error => {
+            res.status(400).json({ error });
+        });
 };
 
 exports.getOneInterview = (req, res, next) => {
@@ -18,19 +26,16 @@ exports.getOneInterview = (req, res, next) => {
     if (!req.auth || !req.auth.userId) {
         return res.status(401).json({ message: 'Non autorisé' });
     }
-    Interview.findOne({
-        _id: req.params.id
-    }).then(
-        (interview) => {
+    Interview.findOne({ _id: req.params.id })
+        .then(interview => {
+            if (!interview || interview.userId !== req.auth.userId) {
+                return res.status(403).json({ message: 'Non autorisé' });
+            }
             res.status(200).json(interview);
-        }
-    ).catch(
-        (error) => {
-            res.status(404).json({
-                error: error
-            });
-        }
-    );
+        })
+        .catch(error => {
+            res.status(404).json({ error });
+        });
 };
 
 exports.modifyInterview = (req, res, next) => {
