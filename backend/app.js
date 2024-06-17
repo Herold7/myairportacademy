@@ -3,7 +3,6 @@ const mongoose = require('mongoose'); //Import du package mongoose
 const dotenv = require('dotenv'); //Import du package dotenv pour la gestion des variables d'environnement
 const cors = require('cors');
 
-
 //Import des routes 
 const blogRoutes = require('./routes/blog');
 const profileRoutes = require('./routes/profile');
@@ -34,6 +33,5 @@ app.use('/api/auth', userRoutes);
 //Route d'accès aux médias téléversés
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/files', express.static(path.join(__dirname, 'files')));
-
 
 module.exports = app;
