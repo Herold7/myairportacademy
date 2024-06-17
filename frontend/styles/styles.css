@@ -109,3 +109,7 @@ a {
     border-width: 3px;
     background-color: var(--container-color);
 }
+#c-yup {
+    color: red;
+    font-size: medium;
+}
