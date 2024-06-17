@@ -12,7 +12,6 @@ const sendRegistrationEmail = async (profileData) => {//Fonction d'envoi de mail
             pass: process.env.SMTP_PASSWORD
         }
     });
-
     try {//Essai d'envoi du mail
         
         const info = await transporter.sendMail({
@@ -28,7 +27,6 @@ const sendRegistrationEmail = async (profileData) => {//Fonction d'envoi de mail
             <br><br>Voici les détails de votre entretien:
             <br>Date: ${profileData.interviewDate}<br>Heure: ${profileData.timeSlot}<br><br>Cordialement,<br>Votre entreprise`, 
         });
-
         console.log("Message envoyé: %s", info.messageId);//Confirmation de l'envoi du mail
     } catch (error) {
         console.log(error);//Gestion des erreurs
