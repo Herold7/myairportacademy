@@ -1,27 +1,38 @@
 const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'your-email@gmail.com',
-        pass: 'your-email-password'
-    }
-});
+dotenv.config();//Chargement des variables d'environnement
 
-const sendRegistrationEmail = (registrationData) => {
-    const mailOptions = {
-        from: 'your-email@gmail.com',
-        to: registrationData.email,
-        subject: 'Registration Confirmation',
-        text: `Dear ${registrationData.firstname},\n\nThank you for registering. We have received your details.\n\nHere are your interview details:\nDate: ${registrationData.interviewDate}\nTime: ${registrationData.timeSlot}\n\nBest regards,\nYour Company`
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
+const sendRegistrationEmail = async (registrationData) => {//Fonction d'envoi de mail
+    let transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASSWORD
         }
-        console.log('Email sent: ' + info.response);
     });
+
+    try {//Essai d'envoi du mail
+        
+        const info = await transporter.sendMail({
+            from: '"Test aéroportuaire" <mail@mail.email>', // expéditeur
+            to: registrationData.email, //destinataires
+            subject: 'Confirmation d\'inscription', 
+            text: `Cher ${registrationData.firstname},
+            \n\nMerci de vous être inscrit. Nous avons bien reçu vos informations.
+            \n\nVoici les détails de votre entretien:\nDate: ${registrationData.interviewDate}
+            \nHeure: ${registrationData.timeSlot}\n\nCordialement,\nVotre entreprise`, 
+            html: `<b>Cher ${registrationData.firstname},
+            </b><br><br>Merci de vous être inscrit. Nous avons bien reçu vos informations.
+            <br><br>Voici les détails de votre entretien:
+            <br>Date: ${registrationData.interviewDate}<br>Heure: ${registrationData.timeSlot}<br><br>Cordialement,<br>Votre entreprise`, 
+        });
+
+        console.log("Message envoyé: %s", info.messageId);//Confirmation de l'envoi du mail
+    } catch (error) {
+        console.log(error);//Gestion des erreurs
+    }
 };
 
 module.exports = sendRegistrationEmail;
