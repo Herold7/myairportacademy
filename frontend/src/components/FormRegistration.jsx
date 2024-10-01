@@ -52,33 +52,33 @@ function FormRegistration() {// Validation du formulaire avec Yup
         profileData.append('cv', data.cv[0]);
         profileData.append('consent', data.consent);
 
-        try {//Essai d'envoi des données
-            const profileResponse = await fetch('./api/profile', {
+        try { // Essai d'envoi des données
+            const profileResponse = await fetch('/api/profile', {
                 method: 'POST',
                 body: profileData
             });
 
-            if (profileResponse.ok) {//Confirmation de l'envoi des données
+            if (profileResponse.ok) { // Confirmation de l'envoi des données
                 const profileResult = await profileResponse.json();
-                console.log('Client saved successfully');
+                console.log('Client enregistré avec succès');
 
-                const interviewData = {//Création d'un objet contenant les données de l'entretien
+                const interviewData = { // Création d'un objet contenant les données de l'entretien
                     interviewDate: data.interviewDate,
                     timeSlot: data.timeSlot,
-                    userId: 'someClientId', //Remplacez par l'identifiant du client actuel 
-                    clientId: profileResult.clientId // Utilisez l'ID du client créé 
+                    userId: profileResult.clientId, // Utilisez l'identifiant du client actuel
+                    clientId: profileResult.clientId // Utilisez l'ID du client créé
                 };
-                //Envoi des données de l'entretien
+                // Envoi des données de l'entretien
                 const interviewResponse = await fetch('/api/registration', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify(interviewData)//Conversion des données en JSON
+                    body: JSON.stringify(interviewData) // Conversion des données en JSON
                 });
 
                 if (interviewResponse.ok) {
-                    console.log('Interview saved successfully');
+                    console.log('Entretien enregistré avec succès');
 
                     const variables = {
                         lastname: data.lastname,
@@ -89,31 +89,16 @@ function FormRegistration() {// Validation du formulaire avec Yup
                         training: data.training,
                         interviewDate: data.interviewDate,
                         timeSlot: data.timeSlot,
-                        reply_to: r.target.reset(),
+                        reply_to: data.email, // Utilisation de l'email pour reply_to
                     };
-
-                    emailjs.send(SERVICE_ID, TEMPLATE_ID_REGISTRATION, variables, PUBLIC_KEY)
-                        .then((res) => {
-                            console.log('Email sent successfully!');
-                            r.target.reset();
-                        })
-                        .catch((err) => {
-                            console.error('There was an error sending the email', err);
-                            alert('An error occurred while sending the email');
-                        });
-                } else {
-                    console.error('There was an error saving the interview', await interviewResponse.text());
-                    alert('An error occurred while saving the interview');
                 }
-            } else {
-                console.error('There was an error saving the registration', await profileResponse.text());
-                alert('An error occurred while saving the registration');
             }
-        } catch (error) {
-            console.error('There was an error submitting the form', error);
-            alert('An error occurred while submitting the form');
+        } catch (error) { // Gestion des erreurs
+            console.error('Erreur lors de l\'envoi du formulaire:', error);
+        } finally {
+            reset(); // Réinitialisation du formulaire
         }
-    };
+    }
 
     return (
         <section className="container">
@@ -129,7 +114,7 @@ function FormRegistration() {// Validation du formulaire avec Yup
                             <p>Les champs suivis d'une * sont obligatoires.</p>
 
                             <div className="mb-3">
-                                <label htmlFor="InputGender" className="form-label">Gender</label>
+                                <label htmlFor="InputGender" className="form-label">Genre</label>
                                 <select className="form-control form-control-lg" id="InputGender" name="gender" aria-describedby="genderHelp"
                                     {...register('gender')}>
                                     <option value=""> </option>
@@ -140,26 +125,26 @@ function FormRegistration() {// Validation du formulaire avec Yup
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="InputLastname" className="form-label">Nom *</label>
-                                <input type="text" className="form-control form-control-lg" id="InputLastname" name="lastname" autoComplete="lastname" placeholder="Ecrivez votre nom de famille" aria-describedby="lastnameHelp"
+                                <input type="text" className="form-control form-control-lg" id="InputLastname" name="lastname" autoComplete="lastname" placeholder="Écrivez votre nom de famille" aria-describedby="lastnameHelp"
                                     {...register('lastname')} />
                                 {errors.lastname && <p id="c-yup">{errors.lastname.message}</p>}
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="InputFirstname" className="form-label">Prénom *</label>
-                                <input type="text" className="form-control form-control-lg" id="InputFirstname" name="firstname" autoComplete="firstname" placeholder="Ecrivez votre prénom" aria-describedby="firstnameHelp"
+                                <input type="text" className="form-control form-control-lg" id="InputFirstname" name="firstname" autoComplete="firstname" placeholder="Écrivez votre prénom" aria-describedby="firstnameHelp"
                                     {...register('firstname')} />
                                 {errors.firstname && <p id="c-yup">{errors.firstname.message}</p>}
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="InputPhone" className="form-label">Téléphone *</label>
-                                <input type="tel" className="form-control form-control-lg" id="InputPhone" name="phone" autoComplete="phone" placeholder="Ecrivez votre n° de téléphone" aria-describedby="phoneHelp "
+                                <input type="tel" className="form-control form-control-lg" id="InputPhone" name="phone" autoComplete="phone" placeholder="Écrivez votre n° de téléphone" aria-describedby="phoneHelp "
                                     {...register('phone')} />
                                 {errors.phone && <p id="c-yup">{errors.phone.message}</p>}
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="InputEmail" className="form-label">Email *</label>
                                 <input type="email" className="form-control form-control-lg" id="InputEmail" name="email" {...register('email')}
-                                    autoComplete="email" placeholder="Ecrivez votre email" aria-describedby="emailHelp" />
+                                    autoComplete="email" placeholder="Écrivez votre email" aria-describedby="emailHelp" />
                                 {errors.email && <p id="c-yup">{errors.email.message}</p>}
                             </div>
                             <div className="mb-3">
@@ -172,7 +157,7 @@ function FormRegistration() {// Validation du formulaire avec Yup
                                 <label htmlFor="InputTraining" className="form-label">Formations *</label>
                                 <select className="form-control form-control-lg" id="InputTraining" name="training" aria-describedby="trainingHelp"
                                     {...register('training')}>
-                                    <option value="" selected >Sélectionner une formation</option>
+                                    <option value="" >Sélectionner une formation</option>
                                     <option value="Agent d'Escale">Agent d'Escale</option>
                                     <option value="Agent de Piste">Agent de Piste</option>
                                     <option value="Agent Bagagiste">Agent Bagagiste</option>
@@ -195,7 +180,7 @@ function FormRegistration() {// Validation du formulaire avec Yup
                                 <label htmlFor="FormControlTimeSlot" className="form-label">Heure de l'entretien *</label>
                                 <select className="form-control form-control-lg" id="FormControlTimeSlot" name="timeSlot" aria-describedby="timeSlotHelp"
                                     {...register('timeSlot')}>
-                                    <option value="" selected >Sélectionner une heure</option>
+                                    <option value="" >Sélectionner une heure</option>
                                     <option value="09:00 - 10:00">09:00 - 10:00</option>
                                     <option value="10:00 - 11:00">10:00 - 11:00</option>
                                     <option value="11:00 - 12:00">11:00 - 12:00</option>
@@ -242,5 +227,6 @@ function FormRegistration() {// Validation du formulaire avec Yup
         </section>
     );
 }
+
 
 export default FormRegistration;
